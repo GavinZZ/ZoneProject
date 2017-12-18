@@ -27,7 +27,7 @@ import Parse
 //    }
 //}
 
-class FeedTableViewController: UITableViewController {
+class FeedTableViewController: UITableViewController{
     
     var count = 0
     
@@ -455,9 +455,43 @@ class FeedTableViewController: UITableViewController {
         let dismissTap = UITapGestureRecognizer(target: self, action: #selector(removeImage))
         imageView.addGestureRecognizer(dismissTap)
         dismissTap.numberOfTapsRequired = 1
+        let longHold = UILongPressGestureRecognizer(target: self, action: #selector(saveImage(sender:)))
+        imageView.addGestureRecognizer(longHold)
+        longHold.minimumPressDuration = 1.5
         imageView.addGestureRecognizer(dismissTap)
+        imageView.addGestureRecognizer(longHold)
         UIApplication.shared.windows.first!.addSubview(imageView)
     }
+    
+    func saveImage(sender: UILongPressGestureRecognizer) {
+        
+        let image = (sender.view as! UIImageView).image
+        
+        let alert = UIAlertController(title: "Saving photos to your library", message: nil, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+            UIImageWriteToSavedPhotosAlbum(image!, self, "image:didFinishSavingWithError:contextInfo:", nil)
+
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (action) in
+            
+        }))
+        
+        present(alert, animated: true, completion: nil)
+
+    }
+    
+    func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+        
+        if (error != nil) {
+            // Something wrong happened.
+        } else {
+            // Everything is alright.
+        }
+        
+    }
+    
     
 //    @IBAction func imageTapped(_ sender: UITapGestureRecognizer) {
 //
