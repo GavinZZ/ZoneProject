@@ -247,17 +247,44 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your feedback." textAlignment="natural" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="wvS-jz-RlD">
+                                <rect key="frame" x="20" y="272" width="374" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="Aoi-Ut-TMi"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Zqg-Hx-fhR" id="YWf-g6-ILe"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hls-dK-8Ns">
+                                <rect key="frame" x="172" y="518" width="70" height="30"/>
+                                <state key="normal" title="Send Now"/>
+                                <connections>
+                                    <action selector="send:" destination="Zqg-Hx-fhR" eventType="touchUpInside" id="Kij-Kp-7yy"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="hls-dK-8Ns" firstAttribute="centerX" secondItem="024-g4-sFZ" secondAttribute="centerX" id="1ky-Sg-fzo"/>
+                            <constraint firstItem="wvS-jz-RlD" firstAttribute="top" secondItem="nf2-lc-Cgp" secondAttribute="bottom" constant="140.33333333333334" id="7g4-Dj-56H"/>
                             <constraint firstItem="nf2-lc-Cgp" firstAttribute="top" secondItem="twb-bZ-teZ" secondAttribute="bottom" constant="34" id="Ksw-Bm-NMn"/>
+                            <constraint firstItem="wvS-jz-RlD" firstAttribute="leading" secondItem="024-g4-sFZ" secondAttribute="leadingMargin" id="Pq4-Nb-uMz"/>
                             <constraint firstItem="nf2-lc-Cgp" firstAttribute="centerX" secondItem="024-g4-sFZ" secondAttribute="centerX" id="Wdj-vb-AU4"/>
+                            <constraint firstItem="hls-dK-8Ns" firstAttribute="top" secondItem="wvS-jz-RlD" secondAttribute="bottom" constant="96" id="xUg-Hg-vtM"/>
+                            <constraint firstItem="wvS-jz-RlD" firstAttribute="trailing" secondItem="024-g4-sFZ" secondAttribute="trailingMargin" id="yNZ-uU-zLa"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="feedtext" destination="wvS-jz-RlD" id="DbO-Mj-sOL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tZI-CQ-dLV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-826" y="-1390"/>
+            <point key="canvasLocation" x="-826.08695652173924" y="-1390.7608695652175"/>
         </scene>
         <!--Hello View Controller-->
         <scene sceneID="0Qk-3f-auX">
@@ -307,17 +334,27 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pA4-wR-9xn">
+                                <rect key="frame" x="20" y="147.99999999999997" width="374" height="426.33333333333326"/>
+                                <mutableString key="text">InstaZone respects the privacy of visitors to its application. As a result, we have developed this privacy policy.  This privacy policy applies only to operation of the application that directly lined to this application. While using this app, InstaZone may share your information with agents, contractors in connection with services that these individuals or entities perform.  This app is built by Yuanhao Zhang, and it's purely non-profitable. The public code is posted on his github and nobody should use the code without having any prior notice made to Yuanhao.  We may update this privacy policy from time to time.  Enacted: December 16, 2017</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Ejb-hl-fdU" firstAttribute="top" secondItem="rER-r5-F1B" secondAttribute="bottom" constant="33" id="KO3-sw-R6u"/>
+                            <constraint firstItem="pA4-wR-9xn" firstAttribute="leading" secondItem="hNp-Oj-DhI" secondAttribute="leadingMargin" id="eQO-1X-iyT"/>
                             <constraint firstItem="Ejb-hl-fdU" firstAttribute="centerX" secondItem="hNp-Oj-DhI" secondAttribute="centerX" id="gEh-9W-MZP"/>
+                            <constraint firstItem="pA4-wR-9xn" firstAttribute="trailing" secondItem="hNp-Oj-DhI" secondAttribute="trailingMargin" id="gk2-I3-Y4p"/>
+                            <constraint firstItem="pA4-wR-9xn" firstAttribute="top" secondItem="Ejb-hl-fdU" secondAttribute="bottom" constant="17.333333333333343" id="qQT-ov-zDH"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IlE-9M-UQi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="886" y="-1377"/>
+            <point key="canvasLocation" x="885.50724637681162" y="-1377.717391304348"/>
         </scene>
         <!--Term View Controller-->
         <scene sceneID="ELn-FZ-GL1">
@@ -337,11 +374,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="50" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xua-Ll-deK">
-                                <rect key="frame" x="20" y="172.00000000000003" width="374" height="466.66666666666674"/>
-                                <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse interdum ac mi in convallis. Nam imperdiet scelerisque tortor, non commodo mauris laoreet a. Maecenas in ligula feugiat arcu tristique rutrum. Vivamus quis erat auctor enim malesuada porta ut ac nisl. Nunc porta massa non venenatis sollicitudin. Donec vitae dictum mauris, in egestas tellus. Ut tristique lacinia massa, nec porttitor nulla molestie a. Nunc vehicula hendrerit tortor, nec vehicula enim fermentum a. Nam eu commodo dolor, vitae faucibus nunc. Sed lorem nibh, posuere sit amet dignissim quis, semper eget ligula. Morbi non finibus ex.
-
-Nam in dui a arcu ultrices imperdiet. Donec non volutpat eros, ut facilisis massa. Vivamus posuere augue sit amet mauris bibendum porta. Vestibulum vehicula orci malesuada ligula mattis, ac dictum dui interdum. Praesent interdum efficitur odio, sed tincidunt diam laoreet nec. Nunc ut placerat neque, et finibus libero. Integer non ex viverra, dictum tortor ac, rutrum ligula.</string>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xua-Ll-deK">
+                                <rect key="frame" x="20" y="147" width="374" height="568.33333333333337"/>
+                                <mutableString key="text">InstaZone allows users to look for friends and follow them to view their latest feeds. As a user of this app, you can post your own feed by uploading image and write a bit of summary, which will be seen by anyone who chooses to follow you.   To use this app, you have agreement to and performence under this Agreement, including:   1. any image posted will not violate any laws or rules;  2. will not use this app in any unlawful means;  3. InstaZone shall have the right to terminate your ability to access and use the InstaZone platform, including closing your account, in accordance with the comuunity guidelines, for any reasons or no reason, at any time without notice.  4. InstaZone does not make any representation and disclaims all warranties, expressed or implied, regarding the User Content, including with respect to accuracy, legality, safety, completeness or quality thereof. </mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -351,9 +386,9 @@ Nam in dui a arcu ultrices imperdiet. Donec non volutpat eros, ut facilisis mass
                         <constraints>
                             <constraint firstItem="Hym-eh-Si3" firstAttribute="centerX" secondItem="4tW-xo-pM5" secondAttribute="centerX" id="HrP-C6-26a"/>
                             <constraint firstItem="Hym-eh-Si3" firstAttribute="top" secondItem="61c-Po-Hgb" secondAttribute="bottom" constant="34" id="ME4-VO-SDZ"/>
-                            <constraint firstItem="xua-Ll-deK" firstAttribute="trailing" secondItem="4tW-xo-pM5" secondAttribute="trailingMargin" id="XPo-Vb-HN2"/>
-                            <constraint firstItem="xua-Ll-deK" firstAttribute="top" secondItem="Hym-eh-Si3" secondAttribute="bottom" constant="40.333333333333343" id="fHY-xo-dZX"/>
-                            <constraint firstItem="xua-Ll-deK" firstAttribute="leading" secondItem="4tW-xo-pM5" secondAttribute="leadingMargin" id="sv3-xk-aOu"/>
+                            <constraint firstItem="xua-Ll-deK" firstAttribute="top" secondItem="Hym-eh-Si3" secondAttribute="bottom" constant="15.333333333333343" id="QhN-eS-idD"/>
+                            <constraint firstItem="xua-Ll-deK" firstAttribute="trailing" secondItem="4tW-xo-pM5" secondAttribute="trailingMargin" id="hLU-QE-MVl"/>
+                            <constraint firstItem="xua-Ll-deK" firstAttribute="leading" secondItem="4tW-xo-pM5" secondAttribute="leadingMargin" id="k9Q-Gf-779"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -782,7 +817,7 @@ Nam in dui a arcu ultrices imperdiet. Donec non volutpat eros, ut facilisis mass
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="jc3-fa-zJh"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="g9c-Fp-BLV"/>
                                 </connections>
                             </textField>
                         </subviews>

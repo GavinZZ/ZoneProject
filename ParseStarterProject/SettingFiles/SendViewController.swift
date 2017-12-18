@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Parse
+import SwiftMailgun
 
 class SendViewController: UIViewController {
 
@@ -14,6 +16,33 @@ class SendViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+
+    @IBOutlet weak var feedtext: UITextField!
+    
+    @IBAction func send(_ sender: Any) {
+        
+        let mailgun = MailgunAPI(apiKey: "key-e3a9a7ce9366dd13c87a28e5c4697ea3", clientDomain: "sandbox3cd39471612d49008b92557c0c24b0dd.mailgun.org")
+        
+        if let feed = feedtext.text {
+            
+            if (feed.count > 0) {
+        
+                mailgun.sendEmail(to: "hz351086153@gmail.com", from: PFUser.current()?.email as! String, subject: "User Feedback", bodyHTML: "<b>" + feedtext.text! + "<b>") { (result) in
+                    
+                    if (result.success) {
+                        
+                        print("Email was sent")
+                        
+                    }
+                    
+                }
+                
+            }
+            
+        }
+
+        
     }
 
     override func didReceiveMemoryWarning() {

@@ -236,7 +236,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if (signUpMode) {
             
             nickname.isHidden = true
-            
+           
             forgotLabel.isHidden = false
             
             signUpMode = false
