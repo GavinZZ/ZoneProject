@@ -9,16 +9,21 @@
 import UIKit
 import Parse
 import SwiftMailgun
+import QuartzCore
 
-class SendViewController: UIViewController {
+class SendViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        feedtext.layer.cornerRadius = 6
+        
+        feedtext.layer.masksToBounds = true
 
         // Do any additional setup after loading the view.
     }
 
-    @IBOutlet weak var feedtext: UITextField!
+    @IBOutlet weak var feedtext: UITextView!
     
     @IBAction func send(_ sender: Any) {
         
@@ -34,6 +39,12 @@ class SendViewController: UIViewController {
                         
                         print("Email was sent")
                         
+                        let alert = UIAlertController(title: "Email Sent Successfully!", message: nil, preferredStyle: .alert)
+                        
+                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                        
+                        self.present(alert, animated: true, completion: nil)
+                        
                     }
                     
                 }
@@ -43,6 +54,16 @@ class SendViewController: UIViewController {
         }
 
         
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        
+        return true
     }
 
     override func didReceiveMemoryWarning() {

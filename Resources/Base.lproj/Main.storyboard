@@ -247,18 +247,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your feedback." textAlignment="natural" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="wvS-jz-RlD">
-                                <rect key="frame" x="20" y="272" width="374" height="150"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="Aoi-Ut-TMi"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="Zqg-Hx-fhR" id="YWf-g6-ILe"/>
-                                </connections>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hls-dK-8Ns">
                                 <rect key="frame" x="172" y="518" width="70" height="30"/>
                                 <state key="normal" title="Send Now"/>
@@ -266,20 +254,29 @@
                                     <action selector="send:" destination="Zqg-Hx-fhR" eventType="touchUpInside" id="Kij-Kp-7yy"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="JUb-D9-8QY">
+                                <rect key="frame" x="20" y="250" width="374" height="150"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="dUY-9U-xbt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="hls-dK-8Ns" firstAttribute="centerX" secondItem="024-g4-sFZ" secondAttribute="centerX" id="1ky-Sg-fzo"/>
-                            <constraint firstItem="wvS-jz-RlD" firstAttribute="top" secondItem="nf2-lc-Cgp" secondAttribute="bottom" constant="140.33333333333334" id="7g4-Dj-56H"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="JUb-D9-8QY" secondAttribute="trailing" id="ISc-Yd-7Xd"/>
                             <constraint firstItem="nf2-lc-Cgp" firstAttribute="top" secondItem="twb-bZ-teZ" secondAttribute="bottom" constant="34" id="Ksw-Bm-NMn"/>
-                            <constraint firstItem="wvS-jz-RlD" firstAttribute="leading" secondItem="024-g4-sFZ" secondAttribute="leadingMargin" id="Pq4-Nb-uMz"/>
+                            <constraint firstItem="hls-dK-8Ns" firstAttribute="top" secondItem="JUb-D9-8QY" secondAttribute="bottom" constant="118" id="L8C-sQ-Hz2"/>
+                            <constraint firstItem="JUb-D9-8QY" firstAttribute="top" secondItem="nf2-lc-Cgp" secondAttribute="bottom" constant="118.33333333333334" id="RDf-FR-FnR"/>
                             <constraint firstItem="nf2-lc-Cgp" firstAttribute="centerX" secondItem="024-g4-sFZ" secondAttribute="centerX" id="Wdj-vb-AU4"/>
-                            <constraint firstItem="hls-dK-8Ns" firstAttribute="top" secondItem="wvS-jz-RlD" secondAttribute="bottom" constant="96" id="xUg-Hg-vtM"/>
-                            <constraint firstItem="wvS-jz-RlD" firstAttribute="trailing" secondItem="024-g4-sFZ" secondAttribute="trailingMargin" id="yNZ-uU-zLa"/>
+                            <constraint firstItem="JUb-D9-8QY" firstAttribute="leading" secondItem="024-g4-sFZ" secondAttribute="leadingMargin" id="dSw-lC-1Wm"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="feedtext" destination="wvS-jz-RlD" id="DbO-Mj-sOL"/>
+                        <outlet property="feedtext" destination="JUb-D9-8QY" id="u77-WP-D2Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tZI-CQ-dLV" userLabel="First Responder" sceneMemberID="firstResponder"/>
