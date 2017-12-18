@@ -63,81 +63,94 @@ class ImageViewController: UIViewController, UITextFieldDelegate, UINavigationCo
     
     @IBAction func submit(_ sender: Any) {
         
-        if (text.text == "" || imageUploaded != true) {
+        if let count = text.text?.count {
             
-            let alert = UIAlertController(title: "Empty Fields", message: "Please upload an image or enter some text", preferredStyle: .alert)
-            
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            
-            present(alert, animated: true, completion: nil)
-            
-        } else {
-        
-            activity = UIActivityIndicatorView(frame: CGRect(x: 0, y: -20, width: 50, height: 50))
-            
-            activity.center = self.view.center
-            
-            activity.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
-            
-            activity.hidesWhenStopped = true
-            
-            view.addSubview(activity)
-            
-            activity.startAnimating()
-            
-            UIApplication.shared.beginIgnoringInteractionEvents()
-            
-            var post = PFObject(className: "Posts")
-        
-            post["createdDate"] = Date()
-            
-            post["message"] = text.text
-            
-            post["likes"] = 0
-            
-            post["peopleLiked"] = []
-            
-            post["tag"] = 0
-            
-            post["userID"] = PFUser.current()?.objectId
-            
-            post["nickname"] = PFUser.current()!["nickname"]
-            
-            post["username"] = PFUser.current()?.username
-            
-            let imageData = UIImageJPEGRepresentation(imageview.image!, 0.5)
-            
-            let imageFile = PFFile(name: "image.png", data: imageData!)
-            
-            post["imageFile"] = imageFile
-            
-            post.saveInBackground { (success, error) in
+            if (count > 50) {
                 
-                if (error != nil) {
+                let alert = UIAlertController(title: "Text entered is too long.", message: nil, preferredStyle: .alert)
+                
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                
+                present(alert, animated: true, completion: nil)
+                
+            } else if (text.text == "" || imageUploaded != true) {
+                
+                let alert = UIAlertController(title: "Empty Fields", message: "Please upload an image or enter some text", preferredStyle: .alert)
+                
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                
+                present(alert, animated: true, completion: nil)
+                
+            }  else {
+                
+                activity = UIActivityIndicatorView(frame: CGRect(x: 0, y: -20, width: 50, height: 50))
+                
+                activity.center = self.view.center
+                
+                activity.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+                
+                activity.hidesWhenStopped = true
+                
+                view.addSubview(activity)
+                
+                activity.startAnimating()
+                
+                UIApplication.shared.beginIgnoringInteractionEvents()
+                
+                var post = PFObject(className: "Posts")
+                
+                post["createdDate"] = Date()
+                
+                post["message"] = text.text
+                
+                post["likes"] = 0
+                
+                post["peopleLiked"] = []
+                
+                post["tag"] = 0
+                
+                post["userID"] = PFUser.current()?.objectId
+                
+                post["nickname"] = PFUser.current()!["nickname"]
+                
+                post["username"] = PFUser.current()?.username
+                
+                let imageData = UIImageJPEGRepresentation(imageview.image!, 0.5)
+                
+                let imageFile = PFFile(name: "image.png", data: imageData!)
+                
+                post["imageFile"] = imageFile
+                
+                post.saveInBackground { (success, error) in
                     
-                    print(error)
-                    
-                } else {
-                    
-                    let alert = UIAlertController(title: "Image Posted", message: nil, preferredStyle: UIAlertControllerStyle.alert)
-                    
-                    self.activity.stopAnimating()
-                    
-                    UIApplication.shared.endIgnoringInteractionEvents()
-                    
-                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                    
-                    self.present(alert, animated: true, completion: nil)
-                    
-                    self.text.text = ""
-                    
-                    self.imageview.image = UIImage(named: "placeholder-image.png")
+                    if (error != nil) {
+                        
+                        print(error)
+                        
+                    } else {
+                        
+                        let alert = UIAlertController(title: "Image Posted", message: nil, preferredStyle: UIAlertControllerStyle.alert)
+                        
+                        self.activity.stopAnimating()
+                        
+                        UIApplication.shared.endIgnoringInteractionEvents()
+                        
+                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                        
+                        self.present(alert, animated: true, completion: nil)
+                        
+                        self.text.text = ""
+                        
+                        self.imageview.image = UIImage(named: "placeholder-image.png")
+                        
+                    }
                     
                 }
                 
             }
-        
+            
         }
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
